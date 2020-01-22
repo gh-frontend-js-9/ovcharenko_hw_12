@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="login.css">
+  <script defer src="scripts/login.js"></script>
+</head>
+<body>
+<h2 class="title">Login Form</h2>
+<section class="main-wrapper">
+<form action="../../../../dist/message.html" method="post" class="form-style" id="login-form">
+ 
+
+  <div class="container">
+    <div class="log-title">
+    <div class="log-title__title"><b>Log In</b></div>
+
+    <div ><a href="../signup/sign-up.html" >Not a member?</a></div>
+    </div>
+    <label for="uname"><b>Email</b></label>
+
+    <input type="email" placeholder="Email" name="uname" id="email"required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Password" name="psw" id="password"required>
+        
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="../password/password.html" class="psw-a">password?</a></span>
+  </div>
+</form>
+</section>
+
+</body>
+</html>

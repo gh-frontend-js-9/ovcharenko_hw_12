@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="sign-up.css">
+    <script defer src="scripts/signup.js"></script>
+</head>
+<body>
+<h2>Sign up Form</h2>
+<section class="main-wrapper">
+
+    <form action="https://geekhub-frontend-js-9.herokuapp.com/api/users/" method="post" class="form-style"  id="signup-form">
+
+        <div class="container">
+            <div class="log-title">
+                <div><b>Sign up</b></div>
+
+                <div><a href="../login/login.html">Existing member?</a></div>
+            </div>
+            <label for="uname"><b>Name</b></label>
+
+            <input type="name" placeholder="Anton Ovcharenko" name="uname" id="name" required>
+            <label for="uname"><b>Email</b></label>
+
+            <input type="email" placeholder="Email" name="uname" id="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Password" name="psw" id="password" required>
+
+            <label for="psw"><b>Confirm password</b></label>
+            <input type="password" placeholder="Password" name="psw" required>
+
+            <button type="submit">Sign up</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+
+
+    </form>
+</section>
+
+</body>
+</html>

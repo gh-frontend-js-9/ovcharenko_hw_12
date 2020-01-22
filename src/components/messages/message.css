@@ -1,0 +1,298 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #303142;
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    padding: 25px 15px;
+    float: left;
+}
+
+.user-bar {
+    float: right;
+    vertical-align: middle;
+    padding-right: 10px;
+    max-height: 500px;
+    margin-top: 27px;
+}
+
+.user-bar__button {
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 400;
+
+    /* Text style for "Add" */
+    letter-spacing: 0.24px;
+    color: #F2F2F3;
+    border: 2px solid #4593F0;
+    border-radius: 50px;
+    padding: 10px 30px;
+    padding-left: 37px;
+    margin: 44px;
+
+}
+
+.user-bar__button:after{
+    content: "+";
+    color: #4593F0;
+    padding-left: 10px;
+
+}
+.user-bar__button:hover {
+    cursor: pointer;
+    color: #303142;
+    background-color: white;
+}
+
+.user-bar__icon {
+    color: white;
+    font-size: 23px;
+    cursor: pointer;
+    margin-right: 44px;
+}
+.nav-bar {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: #2D2F3E;
+    color: #7579A0;
+    width: 80px;
+    height: 91%;
+    font-size: 25px;
+}
+
+.nav {
+    padding-top: 83px;
+}
+.nav-bar__icon {
+    padding: 26px 0px;
+    max-width: 80px;
+    text-align: center;
+}
+.nav-bar__icon:hover {
+    background-color: #F2F2F3;
+    color: #303142;
+    cursor: pointer;
+}
+.block-nav-messanger {
+    height: 77px;
+    padding-left: 130px;
+    box-shadow: 0 3px 80px rgba(23, 24, 32, 0.2);
+    background-color: #2196f3;
+}
+.block-nav-messanger__icon {
+    font-size: 17px;
+    color: #2D2F3E;
+    margin-left: 15px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+.block-nav-messanger__icon:hover {
+   color: #F2F2F3;
+}
+.block-nav-messanger__text {
+    padding-left: 10px;
+    color: #2b2d3c;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.36px;
+}
+.block-nav-messanger__text:hover {
+    color: #ffffff;
+}
+.box-select {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    color: #F2F2F3;
+
+    float: right;
+    padding-top: 22px;
+    padding-right: 30px;
+}
+.block-select--pdt-15px {
+    padding-top: 29px;
+}
+.box-select__select {
+    background-color: #4491EE;
+    color: #F2F2F3;
+    border: 1px solid #73B3F5;
+    border-radius: 50px;
+    padding: 7px 36px;
+    margin-left: 22px;
+}
+.box-select__select:hover {
+    cursor: pointer;
+}
+.block-info {
+    display: flex;
+    flex-direction: column;
+    min-height: 893px;
+    float: right;
+    background-color: #2C2C3C;
+    max-width: 277px;
+    text-align: center;
+    box-shadow: 0px 7px 20px rgba(0,0,0,0.7);
+}
+.box-person__img {
+    padding-top: 43px;
+    padding-bottom: 18px;
+    width: 100px;
+}
+.box-person__name {
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.44px;
+    padding-bottom: 5px;
+
+}
+.box-person__post {
+    color: #9ea3b4;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    padding-bottom: 26px;
+
+}
+.box-person__info{
+    color: #9ca1b2;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.42px;
+    padding: 0px 12px;
+}
+.box-info__title {
+    color: #9ca1b2;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.42px;
+    padding: 0px 12px;
+}
+.box-person {
+    padding-bottom: 37px;
+}
+.box-info__evidence {
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.48px;
+    padding: 15px 0px;
+}
+.block-conversation {
+    margin-left: 80px;
+}
+.box-conversation__image{
+    width: 50px;
+    vertical-align: middle;
+    margin-bottom: 21.6px;
+}
+.box-conversation {
+    background-color: #2D2B3C;
+    padding: 21px 38px;
+    max-width: 439px;
+    border-bottom: 1px solid #4C4D5E;
+}
+.box-conversation__message {
+    color: #9ca1b2;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0.32px;
+}
+.box-conversation__time {
+    float: right;
+    color: #438EE8;
+    font-weight: 900;
+}
+.box-conversation__name {
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.44px;
+    margin-right: 75px;
+    margin-left: 14px;
+}
+.box-newconversation {
+    background-color: #2D2B3C;
+    padding: 38px;
+    max-width: 439px;
+}
+.box-newconversation__button {
+    padding: 14px 24px;
+    background-color: #4593F1;
+    border-radius: 7px;
+    color: #F2F2F3;
+    font-size: 18px;
+    font-weight: 900;
+
+}
+.box-newconversation__button:hover {
+    cursor: pointer;
+    box-shadow: 0px 19px 70px rgba(0,0,0,0.7);
+}
+.box-newconversation__button:before {
+    content: "+";
+    color: #F2F2F3;
+    padding-right: 17px;
+}
+.block-message{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #2f3242;
+}
+.wrapper__block-conversation {
+    float: left;
+}
+.box-all-message {
+    min-height: 100vh;
+    background-color: #303142;
+    max-height: 100vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.box-conversation__input-message {
+    background-color: #2C2C3C;
+    padding: 16px 0px;
+    padding-left: 5px;
+    color: white;
+    border-radius: 12px;
+    border: 1px solid;
+    min-width: 430px;
+}
+.box-conversation__button {
+    background-color: white;
+    margin-left: 15px;
+}
+.user-message {
+
+}
+.user-message__body-message {
+    margin: 15px 5px;
+    border-radius: 42px 42px 42px 0px;
+    color: white;
+    background-color: #4593F0;
+    text-align: initial;
+    max-width: 181px;
+    height: auto;
+    padding: 18px;
+    word-wrap: break-word;
+}
+#user-id-conv {
+    float: right;
+}
