@@ -4,6 +4,9 @@ import '../../assets/images/logo.png';
 import "../../assets/images/user.png";
 import {sendMessage} from "./scripts/api-message";
 import {getAllMessage, startThread} from "./scripts/thread-post";
+import {getAllUsersById} from "./scripts/getAllUserById";
+import {RetrieveAllThreads} from "./scripts/RetrieveAllThreads";
+import {getAllUser} from "./scripts/GetAllUsers";
 ////////////////USER-BAR/////////////////
 let userBarBlock = HTMLRender.render({
     tags: 'div',
