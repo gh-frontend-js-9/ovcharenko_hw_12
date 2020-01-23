@@ -1,4 +1,4 @@
-export function getAllUser() {
+export async function getAllUser() {
     let response = await fetch('https://geekhub-frontend-js-9.herokuapp.com/api/users/all',{
         method: 'GET',
         headers: {

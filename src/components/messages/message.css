@@ -205,6 +205,9 @@ body {
     max-width: 439px;
     border-bottom: 1px solid #4C4D5E;
 }
+.box-conversation:hover{
+    cursor: pointer;
+}
 .box-conversation__message {
     color: #9ca1b2;
     font-family: Montserrat;
@@ -296,3 +299,9 @@ body {
 #user-id-conv {
     float: right;
 }
+::-webkit-scrollbar { width: 10px; height: 3px;}
+::-webkit-scrollbar-track {  background-color: #999;}
+::-webkit-scrollbar-track-piece { background-color: #303142;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #4593F0; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #4593F0;}
+::-webkit-resizer { background-color: #4593F0;}

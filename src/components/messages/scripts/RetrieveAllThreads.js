@@ -1,4 +1,4 @@
-export function  RetrieveAllThreads() {
+export async function  RetrieveAllThreads() {
     let response = await fetch('https://geekhub-frontend-js-9.herokuapp.com/api/threads?sort=desc',{
         method: 'GET',
         headers: {
