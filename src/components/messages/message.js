@@ -506,8 +506,13 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                     className: ['box-conversation__message'],
                     text: !!thread.message ? thread.message.body:'',
                 })
+                let br = HTMLRender.render({
+                    tags: 'br',
+                })
+
                 boxConvers.append(avatar)
                 boxConvers.append(conversUserName)
+                boxConvers.append(br)
                 boxConvers.append(conversMessag)
                 blockConvers.append(boxConvers)
             })
