@@ -1,10 +1,10 @@
 import {HTMLRender} from "./HtmlRender";
 const api = 'https://geekhub-frontend-js-9.herokuapp.com/api/threads/messages';
-   export async function sendMessage() {
+   export async function sendMessage(id, token) {
         let messageBody = document.getElementById('bodyMessage').value;
         let message = {
             "thread": {
-                "_id": "5e2172442ad3c40022987be2"
+                "_id": id
             },
             "message": {
                 "body": messageBody
@@ -22,7 +22,7 @@ const api = 'https://geekhub-frontend-js-9.herokuapp.com/api/threads/messages';
         const options = {
             method: 'POST',
             headers: {
-                'x-access-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTE5YzIyM2E0MTk5YzAwMjI3NTI2OGEiLCJpYXQiOjE1NzkyMDgxMDV9.E2tbeqNouga3wpAP57sFa3i22awA6rUS4mHF2qxscuU',
+                'x-access-token': token,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(message)

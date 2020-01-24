@@ -2,3 +2,4 @@
 
 To start a local server, write " npm run start: dev "
 # ovcharenko_hw_12
+https://goofy-jennings-a5144c.netlify.com/

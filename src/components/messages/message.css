@@ -207,6 +207,7 @@ body {
 }
 .box-conversation:hover{
     cursor: pointer;
+    background-color: #303142;
 }
 .box-conversation__message {
     color: #9ca1b2;

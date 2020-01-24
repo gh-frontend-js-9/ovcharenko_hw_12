@@ -7,6 +7,7 @@ import {getAllMessage, startThread} from "./scripts/thread-post";
 import {getAllUsersById} from "./scripts/getAllUserById";
 import {RetrieveAllThreads} from "./scripts/RetrieveAllThreads";
 import {getAllUser} from "./scripts/GetAllUsers";
+
 ////////////////USER-BAR/////////////////
 let userBarBlock = HTMLRender.render({
     tags: 'div',
@@ -385,30 +386,10 @@ let conversButton = HTMLRender.render({
 })
 
 
-
-    box1Convers.append(convers1UserImg)
-    box2Convers.append(convers2UserImg)
-    box3Convers.append(convers3UserImg)
-    box4Convers.append(convers4UserImg)
-    box1Convers.append(convers1UserName)
-    box2Convers.append(convers2UserName)
-    box3Convers.append(convers3UserName)
-    box4Convers.append(convers4UserName)
-    box1Convers.append(convers1Time)
-    box2Convers.append(convers2Time)
-    box3Convers.append(convers3Time)
-    box4Convers.append(convers4Time)
-    box1Convers.append(convers1Messag)
-    box2Convers.append(convers2Messag)
-    box3Convers.append(convers3Messag)
-    box4Convers.append(convers4Messag)
     box5NevConv.append(newConvInput)
     box5NevConv.append(conversButton)
-    blockConvers.append(box1Convers)
-    blockConvers.append(box2Convers)
-    blockConvers.append(box3Convers)
-    blockConvers.append(box4Convers)
     blockConvers.append(box5NevConv)
+
     conversation.append(blockConvers)
     document.body.append(conversation)
 
@@ -470,28 +451,21 @@ messageAll.append(timeMessage)
 messageBlock.append(messageAll)
 messageBlock.append(messageForm)
 document.body.append(messageBlock)
-
+let id = '5e2172442ad3c40022987be2';
+RetrieveAllThreads(sessionStorage.getItem('token'));
 const form = document.getElementById("mess");
 form.addEventListener("submit", function(event) {
     debugger;
     event.preventDefault();
-    sendMessage();
+    sendMessage(id,sessionStorage.getItem('token'));
 });
 const idToStartConv = document.getElementById("new-conversation");
 idToStartConv.addEventListener("click", function(f) {
     f.preventDefault();
-    startThread();
+    startThread(sessionStorage.getItem('token'));
 });
 setInterval(() => {
-    getAllMessage()
-        .then(res => {
-           return  res.map(msg => {
-            return {
-                user: msg.user.name,
-                message: msg.body
-            }
-        })}
-        )
+    getAllMessage(id,sessionStorage.getItem('token'))
         .then(res => {
             while (userBodyMessage.firstChild){
                 userBodyMessage.firstChild.remove()
@@ -499,13 +473,49 @@ setInterval(() => {
             res.forEach(msg => {
              let message = HTMLRender.render({
                     tags: 'div',
-                    text: msg.message,
+                    text: msg.body,
                     className: ['user-message__body-message']
                 })
                 userBodyMessage.append(message)
             })
         })
 },2000)
+RetrieveAllThreads(sessionStorage.getItem('token'))
+        .then(res => {
+            res.forEach(async (thread) => {
+                console.log(thread.users)
+                let boxConvers = HTMLRender.render({
+                    tags: 'div',
+                    className: ['box-conversation'],
+                    title: 'data-id',
+                    value: thread._id
+                })
+                let avatar = HTMLRender.render({
+                    tags: 'img',
+                    className: ['box-conversation__image'],
+                    title: 'src',
+                    value: '../dist/user.png'
+                })
+                let conversUserName = HTMLRender.render({
+                    tags: 'span',
+                    className: ['box-conversation__name'],
+                    text: thread.users[0].name,
+                })
+                let conversMessag = HTMLRender.render({
+                    tags:'span',
+                    className: ['box-conversation__message'],
+                    text: !!thread.message ? thread.message.body:'',
+                })
+                boxConvers.append(avatar)
+                boxConvers.append(conversUserName)
+                boxConvers.append(conversMessag)
+                blockConvers.append(boxConvers)
+            })
+        })
+blockConvers.addEventListener("click", function(e) {
+    if (e.target.classList.contains('box-conversation'))
+    id = e.target.dataset.id;
+});
 
 /*
 function createLogo(){
