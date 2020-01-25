@@ -273,7 +273,9 @@ let newConvInput = HTMLRender.render({
     tags: 'input',
     className: ['friendly-user-id'],
     title: 'id',
-    value: 'user-id-conv'
+    value: 'user-id-conv',
+    title2: 'placeholder',
+    value2: 'Write user id'
 })
 let convers1UserImg = HTMLRender.render({
     tags: 'img',
@@ -479,7 +481,7 @@ setInterval(() => {
                 userBodyMessage.append(message)
             })
         })
-},2000)
+},1000)
 RetrieveAllThreads(sessionStorage.getItem('token'))
         .then(res => {
             res.forEach(async (thread) => {

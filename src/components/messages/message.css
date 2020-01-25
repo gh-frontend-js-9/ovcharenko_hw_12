@@ -134,7 +134,7 @@ body {
 .block-info {
     display: flex;
     flex-direction: column;
-    min-height: 893px;
+    min-height: 734px;
     float: right;
     background-color: #2C2C3C;
     max-width: 277px;
@@ -264,9 +264,9 @@ body {
     float: left;
 }
 .box-all-message {
-    min-height: 100vh;
+    min-height: 77vh;
     background-color: #303142;
-    max-height: 100vh;
+    max-height: 77vh;
     overflow: scroll;
     overflow-x: hidden;
 }
