@@ -193,6 +193,8 @@ body {
 }
 .block-conversation {
     margin-left: 80px;
+    height: 747px;
+    overflow: scroll;
 }
 .box-conversation__image{
     width: 50px;
@@ -306,3 +308,8 @@ body {
 ::-webkit-scrollbar-thumb { height: 50px; background-color: #4593F0; border-radius: 3px;}
 ::-webkit-scrollbar-corner { background-color: #4593F0;}
 ::-webkit-resizer { background-color: #4593F0;}
+@media screen and (max-width: 1362px) {
+    .block-info {
+        display: none;
+    }
+}

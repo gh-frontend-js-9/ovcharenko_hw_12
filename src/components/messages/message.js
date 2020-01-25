@@ -501,7 +501,7 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                 let conversUserName = HTMLRender.render({
                     tags: 'span',
                     className: ['box-conversation__name'],
-                    text: thread.users[0].name,
+                    text: thread.users[1].name,
                 })
                 let conversMessag = HTMLRender.render({
                     tags:'span',
