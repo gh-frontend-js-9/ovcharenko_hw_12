@@ -550,8 +550,6 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                     boxConvers.append(conversMessag)
                     blockConvers.append(boxConvers)
                 }
-
-
             })
         })
 blockConvers.addEventListener("click", function(e) {
