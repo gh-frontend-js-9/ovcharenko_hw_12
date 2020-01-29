@@ -240,13 +240,13 @@ body {
     max-width: 439px;
 }
 .box-newconversation__button {
-    padding: 14px 24px;
+    padding: 14px 84px;
     background-color: #4593F1;
     border-radius: 7px;
     color: #F2F2F3;
     font-size: 18px;
     font-weight: 900;
-
+    border: none;
 }
 .box-newconversation__button:hover {
     cursor: pointer;
@@ -277,13 +277,16 @@ body {
     overflow-x: hidden;
 }
 .box-conversation__input-message {
-    background-color: #2C2C3C;
     padding: 16px 0px;
     padding-left: 5px;
-    color: white;
-    border-radius: 12px;
+    color: #9ca1b2;
     border: 1px solid;
-    min-width: 82%;
+    font-weight: 700;
+    min-width: 96%;
+    border-radius: 10px;
+    border: 1px solid rgba(156, 161, 178, 0.3);
+    background-color: #404359;
+    margin-left: 7px;
 }
 .box-conversation__button {
     background-color: white;
@@ -323,7 +326,7 @@ body {
 ::-webkit-scrollbar-track {  background-color: #999;}
 ::-webkit-scrollbar-track-piece { background-color: #303142;}
 ::-webkit-scrollbar-thumb { height: 50px; background-color: #4593F0; border-radius: 3px;}
-::-webkit-scrollbar-corner { background-color: #4593F0;}
+::-webkit-scrollbar-corner { background-color: #303142;}
 ::-webkit-resizer { background-color: #4593F0;}
 @media screen and (max-width: 1362px) {
     .block-info {

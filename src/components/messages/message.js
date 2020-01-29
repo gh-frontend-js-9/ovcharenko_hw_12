@@ -393,7 +393,7 @@ let newThread = HTMLRender.render({
 })
 
 
-    box5NevConv.append(newConvInput)
+
     box5NevConv.append(conversButton)
 
     newThread.append(box5NevConv)
@@ -438,21 +438,14 @@ let messageInputBody = HTMLRender.render({
     title: 'type',
     value: 'text',
     title2: 'placeholder',
-    value2: 'Write your message',
+    value2: 'Write a message',
     title3: 'id',
     value3: 'bodyMessage'
 })
-let messageInputButton = HTMLRender.render({
-    tags: 'input',
-    title: 'type',
-    value: 'submit',
-    className: ['box-conversation__button'],
-    title2: 'value',
-    value2: 'Send'
-})
+
 
 messageForm.append(messageInputBody)
-messageForm.append(messageInputButton)
+
 messageInput.append(messageForm)
 messageAll.append(userBodyMessage)
 messageAll.append(timeMessage)
