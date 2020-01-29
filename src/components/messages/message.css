@@ -279,20 +279,33 @@ body {
     color: white;
     border-radius: 12px;
     border: 1px solid;
-    min-width: 430px;
+    min-width: 82%;
 }
 .box-conversation__button {
     background-color: white;
     margin-left: 15px;
 }
+.user-message__user-body-message{
+    margin: 15px 5px;
+    border-radius: 42px 42px 0px 42px;
+    color: white;
+    background-color: #2196f3;
+    text-align: initial;
+    max-width: 181px;
+    height: auto;
+    padding: 18px;
+    word-wrap: break-word;
+    align-self: flex-end;
+}
 .user-message {
-
+    display: flex;
+    flex-direction: column;
 }
 .user-message__body-message {
     margin: 15px 5px;
     border-radius: 42px 42px 42px 0px;
     color: white;
-    background-color: #4593F0;
+    background-color: #404359;
     text-align: initial;
     max-width: 181px;
     height: auto;
@@ -311,5 +324,10 @@ body {
 @media screen and (max-width: 1362px) {
     .block-info {
         display: none;
+    }
+}
+@media screen and (max-width: 836px) {
+    .block-nav-messanger{
+        padding-left: 81px;
     }
 }

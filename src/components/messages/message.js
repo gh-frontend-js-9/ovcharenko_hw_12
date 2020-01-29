@@ -473,12 +473,21 @@ setInterval(() => {
                 userBodyMessage.firstChild.remove()
             }
             res.forEach(msg => {
-             let message = HTMLRender.render({
+                if (sessionStorage.getItem('id') == msg.user._id) {
+                let message = HTMLRender.render({
                     tags: 'div',
                     text: msg.body,
                     className: ['user-message__body-message']
                 })
                 userBodyMessage.append(message)
+            } else {
+                let message = HTMLRender.render({
+                    tags: 'div',
+                    text: msg.body,
+                    className: ['user-message__user-body-message']
+                })
+                userBodyMessage.append(message)
+            }
             })
         })
 },1000)
@@ -486,6 +495,7 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
         .then(res => {
             res.forEach(async (thread) => {
                 console.log(thread.users)
+
                 let boxConvers = HTMLRender.render({
                     tags: 'div',
                     className: ['box-conversation'],
@@ -498,25 +508,49 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                     title: 'src',
                     value: '../dist/user.png'
                 })
-                let conversUserName = HTMLRender.render({
-                    tags: 'span',
-                    className: ['box-conversation__name'],
-                    text: thread.users[1].name,
-                })
-                let conversMessag = HTMLRender.render({
-                    tags:'span',
-                    className: ['box-conversation__message'],
-                    text: !!thread.message ? thread.message.body:'',
-                })
-                let br = HTMLRender.render({
-                    tags: 'br',
-                })
+                if (sessionStorage.getItem('id') == thread.users[0]._id) {
+                    let conversUserName = HTMLRender.render({
+                        tags: 'span',
+                        className: ['box-conversation__name'],
+                        text: thread.users[1].name,
+                    })
+                    let conversMessag = HTMLRender.render({
+                        tags:'span',
+                        className: ['box-conversation__message'],
+                        text: !!thread.message ? thread.message.body:'',
+                    })
+                    let br = HTMLRender.render({
+                        tags: 'br',
+                    })
 
-                boxConvers.append(avatar)
-                boxConvers.append(conversUserName)
-                boxConvers.append(br)
-                boxConvers.append(conversMessag)
-                blockConvers.append(boxConvers)
+                    boxConvers.append(avatar)
+                    boxConvers.append(conversUserName)
+                    boxConvers.append(br)
+                    boxConvers.append(conversMessag)
+                    blockConvers.append(boxConvers)
+                } else {
+                    let conversUserName = HTMLRender.render({
+                        tags: 'span',
+                        className: ['box-conversation__name'],
+                        text: thread.users[0].name,
+                    })
+                    let conversMessag = HTMLRender.render({
+                        tags:'span',
+                        className: ['box-conversation__message'],
+                        text: !!thread.message ? thread.message.body:'',
+                    })
+                    let br = HTMLRender.render({
+                        tags: 'br',
+                    })
+
+                    boxConvers.append(avatar)
+                    boxConvers.append(conversUserName)
+                    boxConvers.append(br)
+                    boxConvers.append(conversMessag)
+                    blockConvers.append(boxConvers)
+                }
+
+
             })
         })
 blockConvers.addEventListener("click", function(e) {

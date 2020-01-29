@@ -15,8 +15,10 @@ async function sign() {
             body: JSON.stringify(data)
         })
         if (response.ok) {
+
           sessionStorage.setItem('token',response.headers.get('x-auth-token'))
             let json = await response.json();
+          sessionStorage.setItem('id',json._id)
           return window.location.replace('../../../../dist/message.html')
         } else {
             alert('Misson failed:' + response.status);
