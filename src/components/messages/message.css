@@ -193,8 +193,9 @@ body {
 }
 .block-conversation {
     margin-left: 80px;
-    height: 747px;
     overflow: scroll;
+    max-height: 58vh;
+    min-height: 69vh;
 }
 .box-conversation__image{
     width: 50px;
@@ -255,6 +256,9 @@ body {
     content: "+";
     color: #F2F2F3;
     padding-right: 17px;
+}
+.new-thread {
+    margin-left: 80px;
 }
 .block-message{
     display: flex;

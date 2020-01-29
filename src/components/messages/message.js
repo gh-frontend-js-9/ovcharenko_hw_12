@@ -387,11 +387,17 @@ let conversButton = HTMLRender.render({
     value2: 'submit'
 })
 
+let newThread = HTMLRender.render({
+    tags: 'div',
+    className: ['new-thread']
+})
+
 
     box5NevConv.append(newConvInput)
     box5NevConv.append(conversButton)
-    blockConvers.append(box5NevConv)
 
+    newThread.append(box5NevConv)
+    conversation.append(newThread)
     conversation.append(blockConvers)
     document.body.append(conversation)
 
@@ -528,6 +534,8 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                     boxConvers.append(br)
                     boxConvers.append(conversMessag)
                     blockConvers.append(boxConvers)
+                    newThread.append(box5NevConv)
+                    conversation.append(newThread)
                 } else {
                     let conversUserName = HTMLRender.render({
                         tags: 'span',
