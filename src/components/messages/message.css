@@ -134,8 +134,8 @@ body {
 .block-info {
     display: flex;
     flex-direction: column;
-    max-height: 77vh;
-    min-height: 77vh;
+    max-height: 85vh;
+    min-height: 78vh;
     float: right;
     background-color: #2C2C3C;
     max-width: 277px;
