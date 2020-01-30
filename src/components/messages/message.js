@@ -168,7 +168,7 @@ let option = HTMLRender.render({
         className: ['box-person__post'],
         text: 'UX/UI designer'
     });
-let info = HTMLRender.render({
+let description = HTMLRender.render({
     tags: 'div',
     className: ['box-person__info'],
     text: 'Lorem ipsum dolor ' +
@@ -189,7 +189,7 @@ let nemail = HTMLRender.render({
 let email = HTMLRender.render({
     tags: 'div',
     className: ['box-info__evidence'],
-    text: 'user@gmail.com'
+    text: 'user@gmail.com',
 });
 
 let nphone = HTMLRender.render({
@@ -226,7 +226,7 @@ let organ = HTMLRender.render({
     personBlock.append(img)
     personBlock.append(name)
     personBlock.append(position)
-    personBlock.append(info)
+    personBlock.append(description)
 
     infoBlock.append(nemail)
     infoBlock.append(email)
@@ -494,14 +494,18 @@ setInterval(() => {
 RetrieveAllThreads(sessionStorage.getItem('token'))
         .then(res => {
             res.forEach(async (thread) => {
+                let userId = sessionStorage.getItem('id') === thread.users[0]._id ?
+                    thread.users[1]._id : thread.users[0]._id
                 console.log(thread.users)
-
                 let boxConvers = HTMLRender.render({
                     tags: 'div',
                     className: ['box-conversation'],
                     title: 'data-id',
-                    value: thread._id
+                    value: thread._id,
+                    title2: 'data-user-id',
+                    value2: userId
                 })
+
                 let avatar = HTMLRender.render({
                     tags: 'img',
                     className: ['box-conversation__image'],
@@ -522,7 +526,6 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                     let br = HTMLRender.render({
                         tags: 'br',
                     })
-
                     boxConvers.append(avatar)
                     boxConvers.append(conversUserName)
                     boxConvers.append(br)
@@ -544,7 +547,6 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                     let br = HTMLRender.render({
                         tags: 'br',
                     })
-
                     boxConvers.append(avatar)
                     boxConvers.append(conversUserName)
                     boxConvers.append(br)
@@ -553,11 +555,24 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                 }
             })
         })
-getAllUsersById(sessionStorage.getItem('token'),id)
-blockConvers.addEventListener("click", function(e) {
-    if (e.target.classList.contains('box-conversation'))
-    id = e.target.dataset.id;
+function generateUserInfo(user) {
+    email.textContent = user.email;
+    phone.textContent = user.phone;
+    position.textContent = user.position;
+    adress.textContent = user.address;
+    organ.textContent = user.organization;
+    name.textContent = user.name;
+    description.textContent = user.description;
+}
+
+blockConvers.addEventListener("click",async function(e) {
+    if (e.target.classList.contains('box-conversation')) {
+        id = e.target.dataset.id;
+       let user = await getAllUsersById(sessionStorage.getItem('token'), e.target.dataset.userId)
+       generateUserInfo(user)
+    }
 });
+
 
 /*
 function createLogo(){
