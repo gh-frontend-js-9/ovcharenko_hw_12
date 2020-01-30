@@ -4,9 +4,10 @@ import '../../assets/images/logo.png';
 import "../../assets/images/user.png";
 import {sendMessage} from "./scripts/api-message";
 import {getAllMessage, startThread} from "./scripts/thread-post";
-import {getAllUsersById} from "./scripts/getAllUserById";
 import {RetrieveAllThreads} from "./scripts/RetrieveAllThreads";
+import {getAllUsersById} from "./scripts/getAllUserById";
 import {getAllUser} from "./scripts/GetAllUsers";
+
 
 ////////////////USER-BAR/////////////////
 let userBarBlock = HTMLRender.render({
@@ -479,7 +480,7 @@ setInterval(() => {
                     className: ['user-message__body-message']
                 })
                 userBodyMessage.append(message)
-            } else {
+                } else {
                 let message = HTMLRender.render({
                     tags: 'div',
                     text: msg.body,
@@ -552,6 +553,7 @@ RetrieveAllThreads(sessionStorage.getItem('token'))
                 }
             })
         })
+getAllUsersById(sessionStorage.getItem('token'),id)
 blockConvers.addEventListener("click", function(e) {
     if (e.target.classList.contains('box-conversation'))
     id = e.target.dataset.id;

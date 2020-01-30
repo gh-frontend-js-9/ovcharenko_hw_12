@@ -1,5 +1,5 @@
-export async function getAllUsersById(token) {
-    let response = await fetch('https://geekhub-frontend-js-9.herokuapp.com/api/users/5e1f715122162100228d5be6',{
+export async function getAllUsersById(token, id) {
+    let response = await fetch('https://geekhub-frontend-js-9.herokuapp.com/api/users/`${id}`',{
         method: 'GET',
         headers: {
             'x-access-token': token,
