@@ -68,6 +68,8 @@ let logoLabe = HTMLRender.render({
     let messageIcon =  HTMLRender.render({
         tags: 'i',
         className: ['fas','fa-envelope','nav-bar__icon'],
+        title: 'id',
+        value: 'message-icon'
     });
     let peopleIcon =  HTMLRender.render({
         tags: 'i',

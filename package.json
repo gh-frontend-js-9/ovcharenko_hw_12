@@ -24,6 +24,11 @@
   },
   "homepage": "https://github.com/gh-frontend-js-9/ovcharenko_hw_12#readme",
   "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "css-loader": "^3.4.2",
     "file-loader": "^5.0.2",
     "html-loader": "^0.5.5",
@@ -32,5 +37,9 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.10.1"
+  },
+  "dependencies": {
+    "babel-loader": "^8.0.6",
+    "mini-css-extract-plugin": "^0.9.0"
   }
 }

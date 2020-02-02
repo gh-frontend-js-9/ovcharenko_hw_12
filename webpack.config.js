@@ -1,44 +1,28 @@
+const path = require('path');
+require('babel-polyfill');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 module.exports = {
-    devServer: {
-        publicPath: "/",
-        compress: true,
-        port: 8080
+    entry: {
+        messages: ['babel-polyfill','./src/components/messages/message.js'],
+        schedule: ['babel-polyfill','./src/components/schedule/schedule.js']
     },
-    entry: './src/components/messages/message.js',
     output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname,'dist')
-    },
-    resolve: {
-        modules: [
-            "node_modules",
-            path.resolve(__dirname, "app")
-        ],
-        extensions: [".js", ".json", ".jsx", ".css"],
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
             {
-                test: /\.html$/,
-                use: [
-                    {
-                        loader: 'html-loader',
-                        options: { minimize: false }
+                test: /\.js$/,
+                include: path.resolve(__dirname, 'src/'),
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
                     }
-                ]
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader'
-                    }
-                ]
+                }
             },
             {
                 test: /\.(jpe?g|png|svg)$/i,
@@ -47,13 +31,37 @@ module.exports = {
                     publicPath: './assets/images',
                     name: '[name].[ext]',
                 }
-            }
-        ]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    'css-loader',
+                ],
+            },
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
+            filename: 'message.html',
             template: './src/components/messages/message.html',
-            filename: './message.html'
-        })
-    ]
+            chunks: ['messages'],
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'schedule.html',
+            template: './src/components/schedule/schedule.html',
+            chunks: ['schedule'],
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].css',
+            chunkFilename: '[id].css',
+        }),
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 9000
+    }
 };
