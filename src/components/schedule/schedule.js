@@ -1,5 +1,16 @@
+
 import {HTMLRender} from "../messages/scripts/HtmlRender";
 import "./schedule.css"
+
+import "../../../node_modules/tablesort/dist/tablesort.min"
+
+import "../../../node_modules/tablesort/dist/sorts/tablesort.number.min"
+import "../../../node_modules/tablesort/dist/sorts/tablesort.monthname.min"
+import "../../../node_modules/tablesort/dist/sorts/tablesort.filesize.min"
+import "../../../node_modules/tablesort/dist/sorts/tablesort.dotsep.min"
+import "../../../node_modules/tablesort/dist/sorts/tablesort.date.min"
+
+
 let userBarBlock = HTMLRender.render({
     tags: 'div',
     className: ['user-bar']
@@ -78,6 +89,7 @@ navButtons.append(peopleIcon)
 navBlock.append(navButtons)
 document.body.append(navBlock)
 //////////////////////////////////////
+
 let table = HTMLRender.render({
     tags: 'table',
     title: 'id',
@@ -130,42 +142,121 @@ let tr1 = HTMLRender.render({
 })
 let td11 = HTMLRender.render({
     tags: 'td',
-    text: 'Lorem ipsum dolor sit amet tetur' +
-        'caecat cupidatat non proident, sunt in culpa qui'
+    text: 'First company'
 })
+
 let td12 = HTMLRender.render({
     tags: 'td',
-    text:''
-})
-let td12 = HTMLRender.render({
-    tags: 'td',
-    text:''
+    text:'6 days'
 })
 let td13 = HTMLRender.render({
     tags: 'td',
-    text:''
+    text:'358 000'
 })
 let td14 = HTMLRender.render({
     tags: 'td',
-    text:''
+    text:'58 200'
 })
 let td15 = HTMLRender.render({
     tags: 'td',
-    text:''
+    text:'25%'
 })
 let td16 = HTMLRender.render({
     tags: 'td',
-    text:''
+    text:'$3.02'
 })
 let td17 = HTMLRender.render({
     tags: 'td',
-    text:''
+    text:'$2.51'
 })
 let td18 = HTMLRender.render({
     tags: 'td',
-    text:''
+    text:'$28.35'
+})
+let td19 = HTMLRender.render({
+    tags: 'td',
+    text:'Active'
+})
+let tr2 = HTMLRender.render({
+    tags: 'tr'
+})
+let td21 = HTMLRender.render({
+    tags: 'td',
+    text: 'Second company'
 })
 
+let td22 = HTMLRender.render({
+    tags: 'td',
+    text:'7 hours'
+})
+let td23 = HTMLRender.render({
+    tags: 'td',
+    text:'1 200'
+})
+let td24 = HTMLRender.render({
+    tags: 'td',
+    text:'800'
+})
+let td25 = HTMLRender.render({
+    tags: 'td',
+    text:'10%'
+})
+let td26 = HTMLRender.render({
+    tags: 'td',
+    text:'$8.45'
+})
+let td27 = HTMLRender.render({
+    tags: 'td',
+    text:'$6.13'
+})
+let td28 = HTMLRender.render({
+    tags: 'td',
+    text:'$45.22'
+})
+let td29 = HTMLRender.render({
+    tags: 'td',
+    text:'Disable'
+})
+let tr3 = HTMLRender.render({
+    tags: 'tr'
+})
+let td31 = HTMLRender.render({
+    tags: 'td',
+    text: 'Third company'
+})
+
+let td32 = HTMLRender.render({
+    tags: 'td',
+    text:'7 hours'
+})
+let td33 = HTMLRender.render({
+    tags: 'td',
+    text:'1 200'
+})
+let td34 = HTMLRender.render({
+    tags: 'td',
+    text:'800'
+})
+let td35 = HTMLRender.render({
+    tags: 'td',
+    text:'10%'
+})
+let td36 = HTMLRender.render({
+    tags: 'td',
+    text:'$8.45'
+})
+let td37 = HTMLRender.render({
+    tags: 'td',
+    text:'$6.13'
+})
+let td38 = HTMLRender.render({
+    tags: 'td',
+    text:'$45.22'
+})
+let td39 = HTMLRender.render({
+    tags: 'td',
+    text:'Active'
+})
 
 theadTR.append(Campaing)
 theadTR.append(Time)
@@ -185,6 +276,28 @@ tr1.append(td16)
 tr1.append(td17)
 tr1.append(td18)
 tr1.append(td19)
+tr2.append(td21)
+tr2.append(td22)
+tr2.append(td23)
+tr2.append(td24)
+tr2.append(td25)
+tr2.append(td26)
+tr2.append(td27)
+tr2.append(td28)
+tr2.append(td29)
+tr3.append(td31)
+tr3.append(td32)
+tr3.append(td33)
+tr3.append(td34)
+tr3.append(td35)
+tr3.append(td36)
+tr3.append(td37)
+tr3.append(td38)
+tr3.append(td39)
 thead.append(theadTR)
 table.append(thead)
+table.append(tr1)
+table.append(tr2)
+table.append(tr3)
+new Tablesort(table);
 document.body.append(table)
