@@ -2,13 +2,13 @@
 import {HTMLRender} from "../messages/scripts/HtmlRender";
 import "./schedule.css"
 
-import "../../../node_modules/tablesort/dist/tablesort.min"
+/*import "../../../node_modules/tablesort/dist/tablesort.min"
 
 import "../../../node_modules/tablesort/dist/sorts/tablesort.number.min"
 import "../../../node_modules/tablesort/dist/sorts/tablesort.monthname.min"
 import "../../../node_modules/tablesort/dist/sorts/tablesort.filesize.min"
 import "../../../node_modules/tablesort/dist/sorts/tablesort.dotsep.min"
-import "../../../node_modules/tablesort/dist/sorts/tablesort.date.min"
+import "../../../node_modules/tablesort/dist/sorts/tablesort.date.min"*/
 
 
 let userBarBlock = HTMLRender.render({
@@ -257,6 +257,10 @@ let td39 = HTMLRender.render({
     tags: 'td',
     text:'Active'
 })
+let tableSortScript = HTMLRender.render({
+    tags: 'script',
+    text: 'new Tablesort(document.getElementById(\'table-id\'));'
+})
 
 theadTR.append(Campaing)
 theadTR.append(Time)
@@ -299,5 +303,8 @@ table.append(thead)
 table.append(tr1)
 table.append(tr2)
 table.append(tr3)
-new Tablesort(table);
+
+
 document.body.append(table)
+/*document.body.append(tableSortScript)*/
+
