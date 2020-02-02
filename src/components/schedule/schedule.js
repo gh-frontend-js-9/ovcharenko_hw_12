@@ -2,13 +2,13 @@
 import {HTMLRender} from "../messages/scripts/HtmlRender";
 import "./schedule.css"
 
-/*import "../../../node_modules/tablesort/dist/tablesort.min"
-
-import "../../../node_modules/tablesort/dist/sorts/tablesort.number.min"
+import "../../../node_modules/tablesort/dist/tablesort.min"
+/*import "../../../node_modules/tablesort/dist/sorts/tablesort.number.min"
 import "../../../node_modules/tablesort/dist/sorts/tablesort.monthname.min"
 import "../../../node_modules/tablesort/dist/sorts/tablesort.filesize.min"
 import "../../../node_modules/tablesort/dist/sorts/tablesort.dotsep.min"
 import "../../../node_modules/tablesort/dist/sorts/tablesort.date.min"*/
+/*new Tablesort(document.getElementById('table-id'));*/
 
 
 let userBarBlock = HTMLRender.render({
@@ -306,5 +306,6 @@ table.append(tr3)
 
 
 document.body.append(table)
-/*document.body.append(tableSortScript)*/
+
+
 
