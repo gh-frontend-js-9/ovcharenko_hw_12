@@ -1,14 +1,70 @@
-
 import {HTMLRender} from "../messages/scripts/HtmlRender";
 import "./schedule.css"
 
-import "../../../node_modules/tablesort/dist/tablesort.min"
-/*import "../../../node_modules/tablesort/dist/sorts/tablesort.number.min"
-import "../../../node_modules/tablesort/dist/sorts/tablesort.monthname.min"
-import "../../../node_modules/tablesort/dist/sorts/tablesort.filesize.min"
-import "../../../node_modules/tablesort/dist/sorts/tablesort.dotsep.min"
-import "../../../node_modules/tablesort/dist/sorts/tablesort.date.min"*/
-/*new Tablesort(document.getElementById('table-id'));*/
+import Tablesort from "tablesort"
+
+/*var cleanNumber = function(i) {
+        return i.replace(/[^\-?0-9.]/g, '');
+    },
+
+    compareNumber = function(a, b) {
+        a = parseFloat(a);
+        b = parseFloat(b);
+
+        a = isNaN(a) ? 0 : a;
+        b = isNaN(b) ? 0 : b;
+
+        return a - b;
+    };
+
+Tablesort.extend('number', function(item) {
+    return item.match(/^[-+]?[£\x24Û¢´€]?\d+\s*([,\.]\d{0,2})/) || // Prefixed currency
+        item.match(/^[-+]?\d+\s*([,\.]\d{0,2})?[£\x24Û¢´€]/) || // Suffixed currency
+        item.match(/^[-+]?(\d)*-?([,\.]){0,1}-?(\d)+([E,e][\-+][\d]+)?%?$/); // Number
+}, function(a, b) {
+    a = cleanNumber(a);
+    b = cleanNumber(b);
+
+    return compareNumber(b, a);
+});
+
+Tablesort.extend('dotsep', function(item) {
+    return /^(\d+\.)+\d+$/.test(item);
+}, function(a, b) {
+    a = a.split('.');
+    b = b.split('.');
+
+    for (var i = 0, len = a.length, ai, bi; i < len; i++) {
+        ai = parseInt(a[i], 10);
+        bi = parseInt(b[i], 10);
+
+        if (ai === bi) continue;
+        if (ai > bi) return -1;
+        if (ai < bi) return 1;
+    }
+
+    return 0;
+});
+var parseDate = function(date) {
+    date = date.replace(/\-/g, '/');
+    date = date.replace(/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{2,4})/, '$3-$2-$1'); // format before getTime
+
+    return new Date(date).getTime() || -1;
+};
+
+Tablesort.extend('date', function(item) {
+    return (
+        item.search(/(Mon|Tue|Wed|Thu|Fri|Sat|Sun)\.?\,?\s*!/i) !== -1 ||
+        item.search(/\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}/) !== -1 ||
+        item.search(/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)/i) !== -1
+    ) && !isNaN(parseDate(item));
+}, function(a, b) {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+
+    return parseDate(b) - parseDate(a);
+});*/
+
 
 
 let userBarBlock = HTMLRender.render({
@@ -89,7 +145,9 @@ navButtons.append(peopleIcon)
 navBlock.append(navButtons)
 document.body.append(navBlock)
 //////////////////////////////////////
-
+let tbody = HTMLRender.render({
+    tags: 'tbody'
+})
 let table = HTMLRender.render({
     tags: 'table',
     title: 'id',
@@ -300,12 +358,12 @@ tr3.append(td38)
 tr3.append(td39)
 thead.append(theadTR)
 table.append(thead)
-table.append(tr1)
-table.append(tr2)
-table.append(tr3)
-
+tbody.append(tr1)
+tbody.append(tr2)
+tbody.append(tr3)
+table.append(tbody)
 
 document.body.append(table)
 
 
-
+new Tablesort(table);
